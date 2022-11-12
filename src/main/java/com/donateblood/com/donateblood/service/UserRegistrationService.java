@@ -5,6 +5,8 @@ import com.donateblood.com.donateblood.repo.UserRegistrationRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 @Service
 public class UserRegistrationService {
 
@@ -16,4 +18,12 @@ public class UserRegistrationService {
         return "User Created successfully";
     }
 
+    public String checkUserId(String userId) {
+        Optional<UserRegistration> userRegistration=userRegistrationRepo.findById(userId);
+        if(userRegistration.isPresent()){
+            return "UserId Exists";
+        }else{
+            return "UserId Not Exist";
+        }
+    }
 }

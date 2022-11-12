@@ -6,10 +6,7 @@ import com.donateblood.com.donateblood.model.UserRegistration;
 import com.donateblood.com.donateblood.service.BloodGroupsService;
 import com.donateblood.com.donateblood.service.UserRegistrationService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import com.donateblood.com.donateblood.service.ExternalApiServie;
 
@@ -41,5 +38,11 @@ public class DonateBloodController {
 	public String registerUser(@RequestBody UserRegistration userRegistration){
 		return userRegistrationService.registerUser(userRegistration);
 	}
+
+	@GetMapping("/checkUserId/{userId}")
+	public String registerUser(@PathVariable String userId){
+		return userRegistrationService.checkUserId(userId);
+	}
+
 
 }
