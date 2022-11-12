@@ -25,8 +25,8 @@ public class ExternalApiServie {
 		Object countries =restTemplate.getForObject(countryUrl, Object.class);
 		List<Object> c=Arrays.asList(countries);
 		Map<String,Object> data= (Map<String, Object>) c.get(0);
-		Map<String,Map<String,String>> dataa= (Map<String, Map<String, String>>) data.get("data");
-		return  dataa.entrySet().stream().map(a->a.getValue().get("country")).collect(Collectors.toList());;
+		Map<String,Map<String,String>> countryObjectMap= (Map<String, Map<String, String>>) data.get("data");
+		return  countryObjectMap.entrySet().stream().map(countryObject->countryObject.getValue().get("country")).collect(Collectors.toList());
 	}
 
 }
