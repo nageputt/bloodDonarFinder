@@ -20,15 +20,15 @@ public class ExternalApiServie {
 	RestTemplate restTemplate;
 	
 	public List<String> getCountries() {
-		List<String> countrie = null;
-		Object countries =restTemplate.getForObject(countryUrl, Object.class);
-		List<Object> c=Arrays.asList(countries);
+		List<String> countries = null;
+		Object countriesObject =restTemplate.getForObject(countryUrl, Object.class);
+		List<Object> c=Arrays.asList(countriesObject);
 		Map<String,Object> data= (Map<String, Object>) c.get(0);
-		Map<String,Map<String,String>> dataa= (Map<String, Map<String, String>>) data.get("data");
+		Map<String,Map<String,String>> dataa= (Map<String, Map<String, String>>) data.get("Results");
 		dataa.entrySet().forEach(a->{
-			countrie.add(a.getValue().get("country"));
+			countries.add(a.getValue().get("country"));
 		});
-		return  countrie;
+		return  countries;
 	}
 
 }

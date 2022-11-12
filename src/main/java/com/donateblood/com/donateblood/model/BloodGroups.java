@@ -11,6 +11,6 @@ public class BloodGroups {
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    private int bloodId;
+    private Integer bloodId;
     private String bloodGroupName;
 }
